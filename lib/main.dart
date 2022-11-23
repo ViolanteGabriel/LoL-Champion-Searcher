@@ -10,6 +10,7 @@ import 'package:http/http.dart' as http;
 void main() {
   runApp(MaterialApp(
     home: Home(),
+    debugShowCheckedModeBanner: false,
   ));
 }
 
@@ -154,14 +155,14 @@ class _telaCampeaoState extends State<telaCampeao> {
         title: Text(widget.nomeCampeao),
         centerTitle: true,
       ),
-
-      body: Center(
-        child: Column(
-          children: [
-            FittedBox(child: Image (image: NetworkImage('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${widget.nomeCampeao}_0.jpg')
-                      ,fit: BoxFit.fill),
-            )
-          ]
+  //
+      body: Container(
+        decoration:  BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage(
+                'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${widget.nomeCampeao}_0.jpg'),
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );
